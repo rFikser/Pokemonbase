@@ -1,14 +1,14 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import axios from 'axios';
-import {Button, Typography} from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 import './Pokedex.css'
 import Grid from "@material-ui/core/Grid";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
 
-const PokemonPage = ({match, history}) => {
-    let {params} = match
-    let {id} = params
+const PokemonPage = ({ match, history }) => {
+    let { params } = match
+    let { id } = params
 
     const [pokemon, setPokemon] = useState(undefined)
 
@@ -17,7 +17,7 @@ const PokemonPage = ({match, history}) => {
             .get(`https://pokeapi.co/api/v2/pokemon/${id}`)
             .then(function (response) {
                 console.log(response)
-                const {data} = response;
+                const { data } = response;
                 setPokemon(data)
             })
             .catch(function () {
@@ -30,15 +30,15 @@ const PokemonPage = ({match, history}) => {
     }
 
     const getPokemon = () => {
-        let {name, id, height, weight, types} = pokemon;
+        let { name, id, height, weight, types } = pokemon;
         let imageURL = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`;
         return (
             <Grid justify="center" container>
-                <Grid xs={12}  className=" wrapperClass">
+                <Grid xs={12} className=" wrapperClass">
                     <Typography className="pokemonTitle" variant="h1">
                         {`${id}. ${toFirstCharUpperCase(name)}`}
                     </Typography>
-                    <img src={imageURL} className="pokemonImage"/>
+                    <img src={imageURL} className="pokemonImage" />
 
                 </Grid>
                 <Grid container className="mainInfoWrapper">
@@ -50,8 +50,8 @@ const PokemonPage = ({match, history}) => {
                     <Grid item lg={4} className="typeWrapper">
                         <Typography variant="h1">Types:</Typography>
                         {types.map(typeInfo => {
-                            const {type} = typeInfo
-                            const {name} = type
+                            const { type } = typeInfo
+                            const { name } = type
                             return <Typography variant="h3" key={name}>{`${name}`}</Typography>
                         })}
                     </Grid>
@@ -65,7 +65,7 @@ const PokemonPage = ({match, history}) => {
 
     return (
         <div className="wrapper">
-            {pokemon === undefined && <LinearProgress/>}
+            {pokemon === undefined && <LinearProgress />}
             {
                 pokemon !== undefined && pokemon &&
                 getPokemon()

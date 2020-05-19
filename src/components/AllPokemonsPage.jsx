@@ -77,32 +77,48 @@ const AllPokemonsPage = (props) => {
     }
 
     return (
-        <>
-            <AppBar position="static">
-                <Toolbar className="header-title">
-                    <div className={styles.fadeSearch}>
-                        <SearchIcon className="searchIcon"/>
-                        <TextField onChange={handleSearchChange}
-                                   className="searchField"
-                                   label="Search for pokemon"
-                                   variant="standard"
-                        />
-                    </div>
-                    <div className="backToList">
-                        <Button onClick={() => history.push("/")} className='backButton' variant="text"> Back to List </Button>
-                    </div>
-                </Toolbar>
-            </AppBar>
-            {pokemonData ?
-                <Grid style={{width: "100%"}} container spacing={2} className="pokedexContainer">
-                    {Object.keys(pokemonData).map(
-                        (id) =>
-                        pokemonData[id].name.includes(filter.toLowerCase()) && getPokemonCard(id))}
-                </Grid>
-                : <LinearProgress/>
-            }
-        </>
-    )
+      <>
+        <AppBar position="static">
+          <Toolbar className="header-title">
+            <div className={styles.fadeSearch}>
+              <SearchIcon className="searchIcon" />
+              <TextField
+                onChange={handleSearchChange}
+                className="searchField"
+                label="Search for pokemon"
+                variant="standard"
+              />
+            </div>
+            <div className="backToList">
+              <Button
+                onClick={() => history.push("/")}
+                className="backButton"
+                variant="text"
+              >
+                {" "}
+                Back to List{" "}
+              </Button>
+            </div>
+          </Toolbar>
+        </AppBar>
+        {pokemonData ? (
+          <Grid
+            style={{ width: "100%" }}
+            container
+            spacing={2}
+            className="pokedexContainer"
+          >
+            {Object.keys(pokemonData).map(
+              (id) =>
+                pokemonData[id].name.includes(filter.toLowerCase()) &&
+                getPokemonCard(id)
+            )}
+          </Grid>
+        ) : (
+          <LinearProgress />
+        )}
+      </>
+    );
 }
 
 export default AllPokemonsPage;
