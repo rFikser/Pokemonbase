@@ -1,0 +1,130 @@
+@font-face {
+    font-family: 'PokemonFont';
+    src: url("../fonts/Pokemon Solid.ttf");
+}
+
+@font-face {
+    font-family: 'PokemonFontHoolow';
+    src: url("../fonts/Pokemon Hollow.ttf")
+}
+
+* {
+    font-family: 'PokemonFont', sans-serif !important;
+}
+
+.header-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-title-text{
+    padding-bottom: 20px;
+}
+
+.pokedexContainer {
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.card {
+    cursor: pointer;
+    transition: 0.2s !important;
+}
+
+.card:hover {
+    transform: scale(1.2);
+}
+
+.backButton {
+    font-size: 30px !important;
+    color: white !important;
+}
+
+
+
+.cardMedia {
+    margin: auto;
+    width: 130px;
+    height: 130px;
+}
+
+.cardContent {
+    text-align: center;
+}
+
+.wrapperClass {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mainInfoWrapper {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.infoWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.typeWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pokemonImage {
+    width: 400px;
+    height: 400px;
+}
+
+h1 {
+    padding-bottom: 20px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .pokemonImage {
+        width: 300px;
+        height: 300px;
+    }
+
+    h1 {
+        font-size: 50px !important;
+    }
+}
+
+
+/* Pagination */
+
+.buttonsContainer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.nextButton, .prevButton {
+    background-color: transparent;
+    border: none;
+    font-size: 40px;
+    transition: 0.3s;
+    outline: none;
+}
+
+.nextButton:hover, .prevButton:hover {
+    font-size: 50px;
+}
+
+/* SEARCH */
+
+.searchIcon {
+    align-self: flex-end;
+    margin-bottom: 3px;
+}
+
+.searchField {
+    width: 200px;
+    margin-bottom: 5px !important;
+}
